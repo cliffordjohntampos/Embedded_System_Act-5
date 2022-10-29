@@ -124,7 +124,7 @@ bool checker(string sent_message,
 
 	// If receivers checksum value is 0
 	if (count(receiver_checksum.begin(),
-			receiver_checksum.end(), '0')
+		receiver_checksum.end(), '0')
 		== block_size) {
 		return true;
 	}
@@ -136,15 +136,11 @@ bool checker(string sent_message,
 // Main
 int main()
 {
-	string sent_message
-		= "10000101011000111001010011101101";
-	string recv_message
-		= "10000101011000111001010011101101";
-	int block_size = 8;
+	string sent_message = "100001010110001";
+	string recv_message = "100001010110001";
+	int block_size = 5;
 
-	if (checker(sent_message,
-				recv_message,
-				block_size)) {
+	if (checker(sent_message,recv_message,block_size)) {
 		cout << "No Error";
 	}
 	else {
