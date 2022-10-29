@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/* Function to find the One's complement 
-of the given binary string */
-string Ones_complement(string data)
+/* Finding the One's Complement of a Binary String Function */
+string complement(string data)
 {
 	for (int i = 0; i < data.length(); i++) {
 		if (data[i] == '0')
@@ -15,8 +14,8 @@ string Ones_complement(string data)
 	return data;
 }
 
-/* Function to return the checksum value of 
-the give string when divided in K size blocks */
+/* Function that computes the checksum of a given string 
+when it is split into K size blocks. */
 string checkSum(string data, int block_size)
 {
 	// Check data size is divisible by block_size
@@ -38,7 +37,6 @@ string checkSum(string data, int block_size)
 	}
 
 	// Loop to calculate the block
-	// wise addition of data
 	for (int i = block_size; i < n; i += block_size) {
 
 		// Stores the data of the next block
@@ -76,8 +74,8 @@ string checkSum(string data, int block_size)
 			}
 		}
 
-		// After binary add of two blocks with carry,
-		// if carry is 1 then apply binary addition
+		/* After binary add of two blocks with carry,
+		 if carry is 1 then apply binary addition */
 		string final = "";
 
 		if (carry == 1) {
@@ -104,13 +102,13 @@ string checkSum(string data, int block_size)
 		}
 	}
 
-	// Return One's complements of result value
-	// which represents the required checksum value
-	return Ones_complement(result);
+	/* Return One's complements of result value
+	 which represents the required checksum value */
+	return complement(result);
 }
 
-// Function to check if the received message
-// is same as the senders message
+/* Function to check if the received message
+ is same as the senders message */
 bool checker(string sent_message,
 			string rec_message,
 			int block_size)
@@ -135,7 +133,7 @@ bool checker(string sent_message,
 	}
 }
 
-// Driver Code
+// Main
 int main()
 {
 	string sent_message
